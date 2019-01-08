@@ -129,5 +129,14 @@ class MachineServiceTest {
 		
 		
 	}
+	
+	@Test
+	void getAllMachinesTest() {
+		assertEquals(1, service.getAllMachines().size());
+		mach2 = new MachineDTO(2, "Kanura", "Haifa", productSensor);
+		assertEquals(service.addMachine(mach2), OperationStatusEnum.OK );
+		assertEquals(2, service.getAllMachines().size());
+		
+	}
 
 }

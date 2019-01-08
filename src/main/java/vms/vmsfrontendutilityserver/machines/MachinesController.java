@@ -1,5 +1,7 @@
 package vms.vmsfrontendutilityserver.machines;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,6 +46,10 @@ public class MachinesController {
   public MachineStateDTO getMachineState(@PathVariable("machine_id") int machineId) {
 	   return machines.getMachineState(machineId);
 	  }
+  @GetMapping(ApiConstants.GET_MACHINE_ALL)
+  public List<MachineDTO> getAllMachine(){
+	  return machines.getAllMachines();
+  }
  
 
 }

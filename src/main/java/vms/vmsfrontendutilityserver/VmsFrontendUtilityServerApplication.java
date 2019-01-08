@@ -10,3 +10,4 @@ public class VmsFrontendUtilityServerApplication {
 		SpringApplication.run(VmsFrontendUtilityServerApplication.class, args);
 	}
 }
+

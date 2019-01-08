@@ -2,8 +2,11 @@ package vms.vmsfrontendutilityserver.machines;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -18,6 +21,7 @@ import vms.vmsfrontendutilityserver.dto.machines.MachineDTO;
 import vms.vmsfrontendutilityserver.dto.machines.MachineStateCurrentDTO;
 import vms.vmsfrontendutilityserver.dto.machines.MachineStateDTO;
 import vms.vmsfrontendutilityserver.dto.machines.MachineStateEnum;
+import vms.vmsfrontendutilityserver.dto.machines.SensorProductDTO;
 import vms.vmsfrontendutilityserver.jpa.MachineJPA;
 import vms.vmsfrontendutilityserver.jpa.MachineProductSensorJPA;
 import vms.vmsfrontendutilityserver.jpa.ProductJPA;
@@ -180,5 +184,10 @@ private MachineStateDTO convertCurrentStateToDTO(MachineStateCurrentDTO stateMac
 		public OperationStatusEnum saveMachineStateInDB(MachineStateCurrentDTO dto) {
 			MongoRepo.save(dto);
 			return OperationStatusEnum.OK;
+		}
+
+		@Override
+		public List<MachineDTO> getAllMachines() {
+			return SQLRepo.findAll().stream().map(mach -> convertJPAtoDTO(mach)).collect(Collectors.toList());
 		}
 }

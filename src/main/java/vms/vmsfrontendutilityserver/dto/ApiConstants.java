@@ -9,6 +9,8 @@ public interface ApiConstants {
   String GET_MACHINE = ""; // GET
   String REMOVE_MACHINE = ""; // DELETE
   String GET_MACHINE_STATE = "/state"; // GET
+  String GET_MACHINE_ALL = "/all"; // GET
+  
 
   String PRODUCTS = "product";
   String PRODUCT_ADD = ""; // POST
