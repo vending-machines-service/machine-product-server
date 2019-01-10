@@ -1,14 +1,11 @@
 package vms.vmsfrontendutilityserver.machines;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 
-import vms.vmsfrontendutilityserver.dto.machines.SensorProductDTO;
 import vms.vmsfrontendutilityserver.jpa.MachineJPA;
 import vms.vmsfrontendutilityserver.jpa.MachineProductSensorJPA;
 

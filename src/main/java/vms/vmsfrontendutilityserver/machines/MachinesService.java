@@ -2,10 +2,8 @@ package vms.vmsfrontendutilityserver.machines;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
@@ -21,7 +19,6 @@ import vms.vmsfrontendutilityserver.dto.machines.MachineDTO;
 import vms.vmsfrontendutilityserver.dto.machines.MachineStateCurrentDTO;
 import vms.vmsfrontendutilityserver.dto.machines.MachineStateDTO;
 import vms.vmsfrontendutilityserver.dto.machines.MachineStateEnum;
-import vms.vmsfrontendutilityserver.dto.machines.SensorProductDTO;
 import vms.vmsfrontendutilityserver.jpa.MachineJPA;
 import vms.vmsfrontendutilityserver.jpa.MachineProductSensorJPA;
 import vms.vmsfrontendutilityserver.jpa.ProductJPA;
