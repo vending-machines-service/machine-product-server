@@ -154,13 +154,16 @@ public class MachinesService implements IMachines {
 		System.out.println("listSen  = " + listSen);
 		SensorProps props = config.getSensorProps().get(1);
 		System.out.println("props = " + props);
-		for (SensorDescription sensor : listSen) {
-			if (sensor.getSensorId() <= props.getFrom() || sensor.getSensorId() >= props.getTo()) {
-				sensorsData.put(sensor.getDiscription(), sensorValue.get(sensor.getSensorId()));
-				if (sensorValue.get(sensor.getSensorId()) == 1)
-					state = MachineStateEnum.ERROR;
+		for(SensorDescription sensor : listSen) {
+			if(sensor.getSensorId() < props.getFrom() || sensor.getSensorId()>props.getTo()) {
+				if(sensorValue.get(sensor.getSensorId()) == null) {
+					sensorsData.put(sensor.getDiscription(), -1 );
+					state = MachineStateEnum.SENSOR_NO_SIGNAL;
+				} else {
+					sensorsData.put(sensor.getDiscription(), sensorValue.get(sensor.getSensorId()));
+				if(sensorValue.get(sensor.getSensorId()) == 1) state = MachineStateEnum.ERROR;
+				}
 			}
-
 		}
 
 		return new MachineStateDTO(stateMachine.machineId, productsBoxes, sensorsData, state);
